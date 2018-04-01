@@ -1,0 +1,24 @@
+version: '2.0'
+
+services:
+  webapp1:
+    build: ./webApp1
+    ports:
+      - "3310:3310"
+    volumes:
+      - ./webApp1:/app
+    env_file: ./webApp2/webApp2.env
+    depends_on:
+      - webapp2    
+  webapp2:
+    build: ./webApp2
+    expose:
+      - "3320"    
+    volumes:
+      - ./webApp2:/app
+        
+    
+
+
+
+
